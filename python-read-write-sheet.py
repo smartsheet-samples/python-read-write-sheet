@@ -1,3 +1,4 @@
+# Install smartsheet sdk with the command: pip install smartsheet-python-sdk
 import smartsheet
 
 # TODO: Set your API access token here, or leave as None and set as environment variable "SMARTSHEET_ACCESS_TOKEN"
@@ -37,7 +38,7 @@ def evaluate_row_and_build_updates(source_row):
 
             # Build the row to update
             newRow = ss.models.Row()
-            newRow._id = source_row.id
+            newRow.id = source_row.id
             newRow.cells.append(newCell)
 
             return newRow
