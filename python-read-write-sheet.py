@@ -7,7 +7,7 @@ access_token = None
 # TODO: Update this with the ID of your sheet to update
 sheet_id = 3948180799809412
 
-# The API identifies columns by Id, but it's more convenient to refer to column names
+# The API identifies columns by Id, but it's more convenient to refer to column names. Store a map here
 column_map = {}
 
 # Helper function to find cell in a row
@@ -19,9 +19,9 @@ def get_cell_by_column_name(row, column_ame):
 # TODO: Replace the body of this function with your code
 # This *example* looks for rows with a "Status" column marked "Complete" and sets the "Remaining" column to zero
 #
-# Return a new Row with update cell values, else None to leave unchanged
+# Return a new Row with updated cell values, else None to leave unchanged
 def evaluate_row_and_build_updates(source_row):
-    # Find the cell and value we want to example
+    # Find the cell and value we want to evaluate
     status_cell = get_cell_by_column_name(source_row, "Status")
     status_value = status_cell.display_value
     if (status_value == "Complete"):
