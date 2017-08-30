@@ -1,4 +1,4 @@
-# Install smartsheet sdk with the command: pip install smartsheet-python-sdk
+# Install the smartsheet sdk with the command: pip install smartsheet-python-sdk
 import smartsheet
 
 # TODO: Set your API access token here, or leave as None and set as environment variable "SMARTSHEET_ACCESS_TOKEN"
@@ -32,9 +32,7 @@ def evaluate_row_and_build_updates(source_row):
             # Build new cell value
             newCell = ss.models.Cell()
             newCell.column_id = column_map["Remaining"]
-            newCell.value = "0"
-            # Set strict to false to allow the API to parse the string "0" as a number
-            newCell.strict = False
+            newCell.value = 0
 
             # Build the row to update
             newRow = ss.models.Row()
