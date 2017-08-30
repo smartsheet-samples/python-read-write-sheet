@@ -1,5 +1,6 @@
 # Install the smartsheet sdk with the command: pip install smartsheet-python-sdk
 import smartsheet
+import logging
 
 # TODO: Set your API access token here, or leave as None and set as environment variable "SMARTSHEET_ACCESS_TOKEN"
 access_token = None
@@ -51,6 +52,7 @@ print("Starting ...")
 ss = smartsheet.Smartsheet(access_token)
 # Make sure we don't miss any error
 ss.errors_as_exceptions(True)
+logging.basicConfig(filename='mylog.log', level=logging.INFO)
 
 # Load entire sheet
 sheet = ss.Sheets.get_sheet(sheet_id)
