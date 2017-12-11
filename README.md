@@ -14,15 +14,25 @@ This is implemented in the `evaluate_row_and_build_updates()` method which you s
 
 
 ## Setup
-Import the sample data from "Sample Sheet.xlsx" into a new sheet
+Install the smartsheet Python SDK from [pypi](https://pypi.python.org/pypi/smartsheet-python-sdk)
 
-Update the python-read-write-sheet.py file with these two settings:
-* An API access token, obtained from the Smartsheet Account button, under Personal settings
-* The Sheet Id, obtained from sheet properties 
+- `pip install smartsheet --upgrade`
 
-Build and run the application.
+## Configure
+- Import the sample data from "Sample Sheet.xlsx" into a new sheet
 
-The rows marked "Complete" will have the "Remaining" value set to 0. (Note that you will have to refresh in the desktop application to see the changes)
+- Update the python-read-write-sheet.py file with these two settings:
+  * An API access token, obtained from the Smartsheet Account button, under Personal settings  
+    (Alternatively, set a system environment variable `SMARTSHEET_ACCESS_TOKEN` to the value of your token)
+
+  * The Sheet Id, obtained from sheet properties 
+
+## Build and run the application.
+- `python python-read-write-sheet.py`
+
+The rows marked "Complete" will have the "Remaining" value set to 0. (Note that you will have to refresh in the desktop application to see the changes.)
+
+A log file named `rwsheet.log` will accumulate information about API calls.
 
 ## See also
 - http://smartsheet-platform.github.io/api-docs/

@@ -52,7 +52,9 @@ print("Starting ...")
 ss = smartsheet.Smartsheet(access_token)
 # Make sure we don't miss any error
 ss.errors_as_exceptions(True)
-logging.basicConfig(filename='mylog.log', level=logging.INFO)
+
+# Log all calls
+logging.basicConfig(filename='rwsheet.log', level=logging.INFO)
 
 # Load entire sheet
 sheet = ss.Sheets.get_sheet(sheet_id)
@@ -72,8 +74,12 @@ for row in sheet.rows:
         rowsToUpdate.append(rowToUpdate)
 
 # Finally, write updated cells back to Smartsheet
-print("Writing " + str(len(rowsToUpdate)) + " rows back to sheet id " + str(sheet.id))
-result = ss.Sheets.update_rows(sheet_id, rowsToUpdate)
+if rowsToUpdate:
+    print("Writing " + str(len(rowsToUpdate)) + " rows back to sheet id " + str(sheet.id))
+    result = ss.Sheets.update_rows(sheet_id, rowsToUpdate)
+else:
+    print("No updates required")
+        
 print ("Done")
 
 
