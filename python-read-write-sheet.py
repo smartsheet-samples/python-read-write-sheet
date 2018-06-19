@@ -12,8 +12,8 @@ _dir = os.path.dirname(os.path.abspath(__file__))
 column_map = {}
 
 # Helper function to find cell in a row
-def get_cell_by_column_name(row, column_ame):
-    column_id = column_map[column_ame]
+def get_cell_by_column_name(row, column_name):
+    column_id = column_map[column_name]
     return row.get_column(column_id)
 
 
