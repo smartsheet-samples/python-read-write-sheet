@@ -2,6 +2,7 @@
 A Python sample application that loads a sheet, updates selected cells, and saves the results
 
 This is a minimal Smartsheet sample that demonstrates how to
+* Import an XLSX file
 * Load a sheet
 * Loop through the rows
 * Check for rows that meet a criteria
@@ -9,7 +10,8 @@ This is a minimal Smartsheet sample that demonstrates how to
 * Write the results back to the original sheet
 
 
-This sample scans a sheet for rows where the value of the "Status" column is "Complete" and sets the "Remaining" column to zero.
+This sample scans a sheet for rows where the value of the "Status" column is "Complete" and sets the "Remaining"
+column to zero.
 This is implemented in the `evaluate_row_and_build_updates()` method which you should modify to meet your needs.
 
 
@@ -19,13 +21,10 @@ Install the smartsheet Python SDK from [pypi](https://pypi.python.org/pypi/smart
 - `pip install smartsheet --upgrade`
 
 ## Configure
-- Import the sample data from "Sample Sheet.xlsx" into a new sheet
 
-- Update the python-read-write-sheet.py file with these two settings:
-  * An API access token, obtained from the Smartsheet Account button, under Personal settings  
-    (Alternatively, set a system environment variable `SMARTSHEET_ACCESS_TOKEN` to the value of your token)
-
-  * The Sheet Id, obtained from sheet properties 
+- Update the python-read-write-sheet.py file with an API access token, obtained from the Smartsheet Account button,
+under Personal settings (Alternatively, set a system environment variable `SMARTSHEET_ACCESS_TOKEN` to the value of
+your token)
 
 ## Build and run the application.
 - `python python-read-write-sheet.py`

@@ -1,19 +1,19 @@
 # Install the smartsheet sdk with the command: pip install smartsheet-python-sdk
 import smartsheet
 import logging
+import os.path
 
 # TODO: Set your API access token here, or leave as None and set as environment variable "SMARTSHEET_ACCESS_TOKEN"
 access_token = None
 
-# TODO: Update this with the ID of your sheet to update
-sheet_id = 3948180799809412
+_dir = os.path.dirname(os.path.abspath(__file__))
 
 # The API identifies columns by Id, but it's more convenient to refer to column names. Store a map here
 column_map = {}
 
 # Helper function to find cell in a row
-def get_cell_by_column_name(row, column_ame):
-    column_id = column_map[column_ame]
+def get_cell_by_column_name(row, column_name):
+    column_id = column_map[column_name]
     return row.get_column(column_id)
 
 
@@ -56,8 +56,11 @@ ss.errors_as_exceptions(True)
 # Log all calls
 logging.basicConfig(filename='rwsheet.log', level=logging.INFO)
 
+# Import the sheet
+result = ss.Sheets.import_xlsx_sheet(_dir + '/Sample Sheet.xlsx', header_row_index=0)
+
 # Load entire sheet
-sheet = ss.Sheets.get_sheet(sheet_id)
+sheet = ss.Sheets.get_sheet(result.data.id)
 
 print ("Loaded " + str(len(sheet.rows)) + " rows from sheet: " + sheet.name)
 
@@ -76,7 +79,7 @@ for row in sheet.rows:
 # Finally, write updated cells back to Smartsheet
 if rowsToUpdate:
     print("Writing " + str(len(rowsToUpdate)) + " rows back to sheet id " + str(sheet.id))
-    result = ss.Sheets.update_rows(sheet_id, rowsToUpdate)
+    result = ss.Sheets.update_rows(result.data.id, rowsToUpdate)
 else:
     print("No updates required")
         
