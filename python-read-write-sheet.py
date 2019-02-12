@@ -31,12 +31,12 @@ def evaluate_row_and_build_updates(source_row):
             print("Need to update row #" + str(source_row.row_number))
 
             # Build new cell value
-            newCell = ss.models.Cell()
+            newCell = smart.models.Cell()
             newCell.column_id = column_map["Remaining"]
             newCell.value = 0
 
             # Build the row to update
-            newRow = ss.models.Row()
+            newRow = smart.models.Row()
             newRow.id = source_row.id
             newRow.cells.append(newCell)
 
@@ -49,18 +49,18 @@ def evaluate_row_and_build_updates(source_row):
 print("Starting ...")
 
 # Initialize client
-ss = smartsheet.Smartsheet(access_token)
+smart = smartsheet.Smartsheet(access_token)
 # Make sure we don't miss any error
-ss.errors_as_exceptions(True)
+smart.errors_as_exceptions(True)
 
 # Log all calls
 logging.basicConfig(filename='rwsheet.log', level=logging.INFO)
 
 # Import the sheet
-result = ss.Sheets.import_xlsx_sheet(_dir + '/Sample Sheet.xlsx', header_row_index=0)
+result = smart.Sheets.import_xlsx_sheet(_dir + '/Sample Sheet.xlsx', header_row_index=0)
 
 # Load entire sheet
-sheet = ss.Sheets.get_sheet(result.data.id)
+sheet = smart.Sheets.get_sheet(result.data.id)
 
 print ("Loaded " + str(len(sheet.rows)) + " rows from sheet: " + sheet.name)
 
@@ -79,7 +79,7 @@ for row in sheet.rows:
 # Finally, write updated cells back to Smartsheet
 if rowsToUpdate:
     print("Writing " + str(len(rowsToUpdate)) + " rows back to sheet id " + str(sheet.id))
-    result = ss.Sheets.update_rows(result.data.id, rowsToUpdate)
+    result = smart.Sheets.update_rows(result.data.id, rowsToUpdate)
 else:
     print("No updates required")
         
