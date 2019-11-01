@@ -1,10 +1,14 @@
 # Install the smartsheet sdk with the command: pip install smartsheet-python-sdk
 import smartsheet
 import logging
-import os.path
+import os
 
-# TODO: Set your API access token here, or leave as None and set as environment variable "SMARTSHEET_ACCESS_TOKEN"
-access_token = None
+# Set the API token in the environment variable "SMARTSHEET_ACCESS_TOKEN"
+if (not 'SMARTSHEET_ACCESS_TOKEN' in os.environ):
+    print('SMARTSHEET_ACCESS_TOKEN environment variable not set.')
+    exit()
+
+access_token = os.environ['SMARTSHEET_ACCESS_TOKEN']
 
 _dir = os.path.dirname(os.path.abspath(__file__))
 

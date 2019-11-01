@@ -22,9 +22,7 @@ Install the smartsheet Python SDK from [pypi](https://pypi.python.org/pypi/smart
 
 ## Configure
 
-- Update the python-read-write-sheet.py file with an API access token, obtained from the Smartsheet Account button,
-under Personal settings (Alternatively, set a system environment variable `SMARTSHEET_ACCESS_TOKEN` to the value of
-your token)
+- Set the system environment variable `SMARTSHEET_ACCESS_TOKEN` to the value of your token, obtained from the Smartsheet Account button, under Personal settings
 
 ## Build and run the application.
 - `python python-read-write-sheet.py`
