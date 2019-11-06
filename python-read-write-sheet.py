@@ -1,10 +1,7 @@
 # Install the smartsheet sdk with the command: pip install smartsheet-python-sdk
 import smartsheet
 import logging
-import os.path
-
-# TODO: Set your API access token here, or leave as None and set as environment variable "SMARTSHEET_ACCESS_TOKEN"
-access_token = None
+import os
 
 _dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -48,8 +45,8 @@ def evaluate_row_and_build_updates(source_row):
 
 print("Starting ...")
 
-# Initialize client
-smart = smartsheet.Smartsheet(access_token)
+# Initialize client. Uses the API token in the environment variable "SMARTSHEET_ACCESS_TOKEN"
+smart = smartsheet.Smartsheet()
 # Make sure we don't miss any error
 smart.errors_as_exceptions(True)
 
