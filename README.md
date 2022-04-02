@@ -18,14 +18,14 @@ This is implemented in the `evaluate_row_and_build_updates()` method which you s
 ## Setup
 Install the smartsheet Python SDK from [pypi](https://pypi.python.org/pypi/smartsheet-python-sdk)
 
-- `pip install smartsheet --upgrade`
+- `pip3 install smartsheet-python-sdk --upgrade`
 
 ## Configure
 
 - Set the system environment variable `SMARTSHEET_ACCESS_TOKEN` to the value of your token, obtained from the Smartsheet Account button, under Personal settings
 
 ## Build and run the application.
-- `python python-read-write-sheet.py`
+- `python3 python-read-write-sheet.py`
 
 The rows marked "Complete" will have the "Remaining" value set to 0. (Note that you will have to refresh in the desktop application to see the changes.)
 
