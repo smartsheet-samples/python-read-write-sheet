@@ -18,7 +18,7 @@ This is implemented in the `evaluate_row_and_build_updates()` method which you s
 ## Setup
 Install the smartsheet Python SDK from [pypi](https://pypi.python.org/pypi/smartsheet-python-sdk)
 
-- `pip install smartsheet --upgrade`
+- `pip install smartsheet-python-sdk --upgrade`
 
 ## Configure
 
